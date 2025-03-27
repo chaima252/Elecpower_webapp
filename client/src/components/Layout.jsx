@@ -1,4 +1,3 @@
-// src/components/Layout.jsx
 import { useState } from "react";
 import {
   Box,
@@ -9,9 +8,11 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "./Sidebar";
-import { Outlet } from "react-router-dom"; // ✅ Add Outlet for pages
+import { Outlet } from "react-router-dom";
+import AvatarMenu from "./AvatarMenu";
+import NotificationMenu from "./NotificationMenu";
 
 const drawerWidth = 240;
 
@@ -27,28 +28,28 @@ const Layout = () => {
       <CssBaseline />
 
       {/* Top Bar */}
-      <AppBar
-        position='fixed'
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      >
-        <Toolbar>
-          <IconButton
-            color='inherit'
-            edge='start'
-            onClick={toggleDrawer}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant='h6' noWrap>
-            Admin Dashboard
-          </Typography>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <IconButton color="inherit" edge="start" onClick={toggleDrawer} sx={{ mr: 2 }}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              Admin Dashboard
+            </Typography>
+          </Box>
+
+          {/* Avatar & Notifications */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <NotificationMenu />
+            <AvatarMenu />
+          </Box>
         </Toolbar>
       </AppBar>
 
       {/* Sidebar */}
       <Drawer
-        variant='persistent'
+        variant="persistent"
         open={open}
         sx={{
           width: drawerWidth,
@@ -56,7 +57,7 @@ const Layout = () => {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            backgroundColor: '#F7FAFC', // Custom background color
+            backgroundColor: "#F7FAFC",
           },
         }}
       >
@@ -65,7 +66,7 @@ const Layout = () => {
 
       {/* Main Content */}
       <Box
-        component='main'
+        component="main"
         sx={{
           flexGrow: 1,
           p: 3,
@@ -73,10 +74,8 @@ const Layout = () => {
           transition: "margin 0.3s",
         }}
       >
-        <Toolbar /> {/* Keeps content below AppBar */}
-        
-        {/* This will render the current page */}
-        <Outlet /> 
+        <Toolbar />
+        <Outlet />
       </Box>
     </Box>
   );

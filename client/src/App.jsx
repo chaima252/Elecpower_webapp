@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout';
-import ProjectsList from './pages/ProjectsList';
-import Employees from './pages/Employees';
-import Cabinets from './pages/Cabinets';
-import Materials from './pages/Materials';
+import ProjectsList from './components/ProjectsList';
+import Employees from './components/Employees';
+import Cabinets from './components/Cabinets';
+import Materials from './components/Materials';
 function App() {
 
   return (

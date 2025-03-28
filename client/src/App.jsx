@@ -8,6 +8,9 @@ import ProjectsList from './components/ProjectsList';
 import Employees from './components/Employees';
 import Cabinets from './components/Cabinets';
 import Materials from './components/Materials';
+import CreateProjectForm from './components/CreateProject';
+import CreateCabinetForm from './components/CreateCabinet';
+import MaterialsForm from './components/CreateMaterials';
 function App() {
 
   return (
@@ -18,6 +21,10 @@ function App() {
         <Route path="employees" element={<Employees />} />
         <Route path="cabinets" element={<Cabinets />} />
         <Route path="materials" element={<Materials />} />
+        <Route path="create-project" element={<CreateProjectForm />} />
+        <Route path="create-cabinet" element={<CreateCabinetForm />} />
+        <Route path="create-materials" element={<MaterialsForm />} />
+
         </Route>
       </Routes>
     

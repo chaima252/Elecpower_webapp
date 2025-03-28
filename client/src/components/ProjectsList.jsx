@@ -32,7 +32,16 @@ const ProjectsList = () => {
       </Typography>
 
       {/* Search & Filter Section */}
-      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+      <Box sx={{ display: "flex", gap: 3, mb: 3 }}>
+      <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    sx={{ mr: 1, width:200 }}
+                    
+                  >
+                    Create a  project
+                  </Button>
         <TextField
           label="Search Projects"
           variant="outlined"
@@ -45,6 +54,7 @@ const ProjectsList = () => {
           <MenuItem value="In progress">In progress</MenuItem>
           <MenuItem value="Completed">Completed</MenuItem>
         </Select>
+   
       </Box>
 
       {/* Projects Table */}
